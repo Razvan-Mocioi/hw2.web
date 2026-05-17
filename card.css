@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f9;
+    font-family: sans-serif; 
+}
+
+.card-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); 
+    padding: 20px;
+}
+
+#personal-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 320px;
+}
+
+#name-title { 
+    color: #2c3e50; 
+    margin-bottom: 5px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; 
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #084D78;
+}
+
+.info-text { 
+    color: #7f8c8d; 
+    font-style: italic; 
+    margin-bottom: 20px;
+}
+
+.links a {
+    display: inline-block;
+    margin: 5px 0;
+    color: #084D78;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}

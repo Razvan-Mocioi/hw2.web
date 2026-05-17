@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interactiv | Răzvan Mocioi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+
+    <header>
+        <h1>Asistent Virtual (Chatbot)</h1>
+    </header>
+
+    <nav aria-label="Navigare principală">
+        <ul>
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="about.html">Despre mine</a></li>
+            <li><a href="data.html">Experiență și Educație</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="card.html">Carte de Vizită</a></li>
+            <li><a href="specificity.html">Specificitate CSS</a></li>
+            <li><a href="overview.html">Proiecte</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="chat-container">
+            <div id="chat-box" class="chat-box">
+                <div class="message bot-message">
+                    Salut! Sunt asistentul tău virtual. Întreabă-ma ceva despre educația mea, proiecte sau abilități! (poti tasta doar "proiecte", "educatie", "skills")
+                </div>
+            </div>
+
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="user-input" placeholder="Scrie o întrebare aici..." required autocomplete="off">
+                <button type="submit">Trimite</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Răzvan Mocioi</p>
+    </footer>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>

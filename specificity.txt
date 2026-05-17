@@ -1,0 +1,72 @@
+Explicație Specificitate - Paragrafele A, B, C, D:
+
+1. Paragraful A: Primește proprietățile de la selectorul de element "p":
+   - color: gray
+   - font-size: 1rem
+   - font-family: Georgia, serif
+   - line-height: 1.4
+   - padding: 4px 0
+
+2. Paragraful B: Primește proprietățile de la selectorul de clasă ".info", care are prioritate mai mare decât selectorul de element "p":
+   - color: steelblue (suprascrie gray de la "p")
+   - font-size: 1.25rem (suprascrie 1rem de la "p")
+   - background-color: #e8f4fd
+   - padding: 8px 14px (suprascrie 4px 0 de la "p")
+   - border-left: 5px solid steelblue
+   - font-family: Arial, sans-serif (suprascrie Georgia de la "p")
+   - Moștenite de la "p": line-height: 1.4
+
+3. Paragraful C: Primește proprietățile de la selectorul de ID "#warning", care are prioritate mai mare decât clasa și elementul:
+   - color: darkred
+   - font-size: 0.8rem
+   - font-style: italic
+   - text-transform: uppercase
+   - letter-spacing: 0.15em
+   - border: 2px dashed darkred
+   - padding: 10px
+   - background-color: #fff0f0
+   - font-family: 'Courier New', monospace
+   - Moștenite de la "p": line-height: 1.4
+
+4. Paragraful D: Se potrivește cu p, .info, #warning și #warning.info.
+
+   Proprietatea "color":
+   Câștigă "darkorange" de la selectorul "#warning.info".
+   Motivul: "#warning.info" combină un ID (specificitate 100) cu o clasă (specificitate 10),
+   rezultând un scor total de 110. Acesta este mai mare decât "#warning" (100), ".info" (10)
+   și "p" (1). Browserul aplică întotdeauna regula cu specificitatea cea mai mare.
+
+   Proprietatea "font-family":
+   Câștigă 'Courier New' de la "#warning", deoarece "#warning.info" nu definește font-family.
+   Browserul caută următoarea regulă cu specificitate mai mare care definește acea proprietate.
+   "#warning" are specificitate 100, mai mare decât ".info" (10) și "p" (1), deci câștigă.
+
+   Proprietatea "font-size": câștigă 1.1rem de la "#warning.info" (specificitate 110).
+   Proprietatea "background-color": câștigă #fff7e0 de la "#warning.info" (specificitate 110).
+   Proprietatea "border": câștigă 2px solid darkorange de la "#warning.info" (specificitate 110).
+   Proprietatea "font-style": câștigă normal de la "#warning.info" (suprascrie italic de la #warning).
+   Proprietatea "letter-spacing": câștigă 0.03em de la "#warning.info" (suprascrie 0.15em de la #warning).
+
+---
+
+Explicație h1 - CSS extern vs intern:
+
+În style.css (extern) am adăugat:
+h1 {
+    color: #084D78;
+    font-style: normal;
+    padding: 10px;
+}
+
+În <style> intern din specificity.html am adăugat:
+h1 {
+    color: green;
+}
+
+Rezultat: h1 cu textul "title1" apare în culoarea verde (green), nu în culoarea din style.css.
+
+Motivul: Ambele reguli au aceeași specificitate (selectorul de element "h1" = 1 punct).
+Când specificitatea este egală, câștigă regula declarată MAI TÂRZIU în ordinea de cascadă.
+Foaia de stil internă (<style> în <head>) este procesată după cea externă (<link>),
+deci regula internă suprascrie culoarea din fișierul extern.
+Padding și font-style rămân din style.css extern, deoarece regula internă nu le definește.
